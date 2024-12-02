@@ -1,0 +1,39 @@
+
+dataset:
+  path: 'data/Tweets_small.csv'
+  target_column: 'airline_sentiment'
+  text_column: 'text'
+  class_mapping: 
+    negative: 0
+    neutral: 1
+    positive: 2
+
+split:
+  test_size: 0.2
+  random_state: 24
+
+embedding_models:
+  - 'all-MiniLM-L6-v2'
+  - 'paraphrase-MiniLM-L3-v2'
+  - 'distilbert-base-nli-stsb-mean-tokens'
+
+classifiers:
+  - type: 'XGBoost'
+    params:
+      objective: ['multi:softmax']
+      num_class: [3]
+      eval_metric: ['mlogloss']
+      seed: [24]
+      n_estimators: [100]
+      max_depth: [10]
+  - type: 'RandomForest'
+    params:
+      n_estimators: [50, 100]
+      max_depth: [5, 10]
+      random_state: [24]
+
+grid_search:
+  cv: 2
+  scoring: 'f1_macro'
+  n_jobs: -1
+  verbose: 2

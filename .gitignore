@@ -1,0 +1,39 @@
+# Ignore virtual environment directories
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Logs and debugging files
+*.log
+*.out
+*.err
+
+# Local environment and IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Environment variables
+.env
+*.env
